@@ -1,10 +1,10 @@
-import "regenerator-runtime/runtime";
-import "./App.css";
+import 'regenerator-runtime/runtime';
+import './App.css';
 import SpeechRecognition, {
   useSpeechRecognition,
-} from "react-speech-recognition";
-import useClipboard from "react-use-clipboard";
-import { useState } from "react";
+} from 'react-speech-recognition';
+import useClipboard from 'react-use-clipboard';
+import { useState } from 'react';
 
 const App = () => {
   const [textToCopy, setTextToCopy] = useState();
@@ -13,7 +13,7 @@ const App = () => {
   });
 
   const startListening = () =>
-    SpeechRecognition.startListening({ continuous: true, language: "en-IN" });
+    SpeechRecognition.startListening({ continuous: true, language: 'en-IN' });
   const { transcript, browserSupportsSpeechRecognition } =
     useSpeechRecognition();
 
@@ -40,7 +40,7 @@ const App = () => {
 
         <div className="btn-style">
           <button onClick={setCopied}>
-            {isCopied ? "Copied!" : "Copy to clipboard"}
+            {isCopied ? 'Copied!' : 'Copy to clipboard'}
           </button>
           <button onClick={startListening}>Start Listening</button>
           <button onClick={SpeechRecognition.stopListening}>
