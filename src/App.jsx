@@ -31,7 +31,7 @@ const App = () => {
           transcribe spoken words into written text in real-time. It leverages
           browser APIs for voice recognition and provides a clean, intuitive
           interface for seamless transcription. Ideal for accessibility,
-          note-taking, and hands-free tasks.
+          note-taking, and hands-free tasks...
         </p>
 
         <div className="main-content">{transcript}</div>
