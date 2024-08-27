@@ -21,11 +21,9 @@ body {
 
 .container {
   padding: 30px;
-  margin-top: 10px;
 }
 
 h2 {
-  margin-top: 50px;
   color: rgb(43 45 56);
   text-align: center;
   font-size: 48px;
@@ -67,9 +65,8 @@ p,
   line-height: 1.6;
 }
 
-.btn-style{
+.btn-style {
   display: flex;
-
 }
 
 button {
