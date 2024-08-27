@@ -1,21 +1,21 @@
-import 'regenerator-runtime/runtime';
-import './App.css';
+import "regenerator-runtime/runtime";
+import "./App.css";
 import SpeechRecognition, {
   useSpeechRecognition,
-} from 'react-speech-recognition';
-import useClipboard from 'react-use-clipboard';
-import { useState } from 'react';
+} from "react-speech-recognition";
+import useClipboard from "react-use-clipboard";
 
 const App = () => {
-  const [textToCopy, setTextToCopy] = useState();
-  const [isCopied, setCopied] = useClipboard(textToCopy, {
-    successDuration: 1000,
-  });
-
-  const startListening = () =>
-    SpeechRecognition.startListening({ continuous: true, language: 'en-IN' });
   const { transcript, browserSupportsSpeechRecognition } =
     useSpeechRecognition();
+  const [isCopied, setCopied] = useClipboard(transcript);
+
+  const startListening = () =>
+    SpeechRecognition.startListening({ continuous: true, language: "en-IN" });
+
+  const copyToClipBoard = () => {
+    setCopied(transcript);
+  };
 
   if (!browserSupportsSpeechRecognition) {
     return null;
@@ -34,13 +34,11 @@ const App = () => {
           note-taking, and hands-free tasks.
         </p>
 
-        <div className="main-content" onClick={() => setTextToCopy(transcript)}>
-          {transcript}
-        </div>
+        <div className="main-content">{transcript}</div>
 
         <div className="btn-style">
-          <button onClick={setCopied}>
-            {isCopied ? 'Copied!' : 'Copy to clipboard'}
+          <button onClick={copyToClipBoard}>
+            {isCopied ? "Copied!" : "Copy to clipboard"}
           </button>
           <button onClick={startListening}>Start Listening</button>
           <button onClick={SpeechRecognition.stopListening}>
